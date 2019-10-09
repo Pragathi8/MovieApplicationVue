@@ -1,25 +1,30 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './views/Home.vue'
+import VueRouter from 'vue-router'
+import LatestMovie from './components/LatestMovie.vue'
+import Movie from './components/Movie.vue'
+import SearchMovie from './components/SearchMovie.vue'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+export default new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'latestMovie',
+      component: LatestMovie
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/movie/:id',
+      name: 'movie',
+      props: true,
+      component: Movie
+    },
+    {
+      path: '/search/:name',
+      name: 'searchMovie',
+      props: true,
+      component: SearchMovie
     }
   ]
 })
