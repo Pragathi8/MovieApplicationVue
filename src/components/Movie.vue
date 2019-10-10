@@ -129,7 +129,7 @@ export default {
                 crewMembers.forEach(crewMember => {
                     if(crewMember.job == 'Producer') {
                         crew.producer.push(crewMember.name);
-                    } else if(crewMember.jod == 'Director') {
+                    } else if(crewMember.job == 'Director') {
                         crew.director.push(crewMember.name);
                     }
                 });
